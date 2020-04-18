@@ -1,87 +1,107 @@
 <template>
-  <div class="box">
-    <div class="top">
-      <div class="logo">LOGO 火星大气对着陆巡视器稳定性分析系统</div>
-      <div class="bar">
-        <ul>
-          <li><img src="../../assets/new.png" alt=""> 新建</li>
-          <li><img src="../../assets/open.png" alt=""> 打开</li>
-          <li><img src="../../assets/save.png" alt=""> 保存</li>
-          <li><img src="../../assets/lsave.png" alt=""> 另存</li>
-        </ul>
+  <div class="section">
+    <div class="left_s">
+      <div class="htit">
+        <h3>计算仿真</h3>
+        <el-select v-model="type">
+          <el-option :value="1" label="模块选择" />
+          <el-option :value="2" label="模块选择" />
+          <el-option :value="3" label="模块选择" />
+          <el-option :value="4" label="模块选择" />
+        </el-select>
       </div>
-      <div class="top_button">
-        <div class="inbut"><img src="../../assets/pause.png" alt=""> 启动</div>
-        <div class="inbut stop"><span>||</span> 停止</div>
+      <div class="box1">
+        <dl>
+          <dt>时间：</dt>
+          <dd>t=0s</dd>
+        </dl>
+        <dl>
+          <dt>本地位置：</dt>
+          <dd>x=xx</dd>
+          <dd>Y=xx</dd>
+          <dd>Z=xx</dd>
+        </dl>
+        <dl>
+          <dt>本体姿态：</dt>
+          <dd>ψ=xx；</dd>
+          <dd>θ=xx；</dd>
+          <dd>φ=xx；</dd>
+        </dl>
       </div>
+    </div>
+    <!-- right -->
+    <div class="right_s bar">
+      <h3>后处理</h3>
+      <el-tree
+        :data="treeData"
+        :props="defaultProps"
+      >
+        <span class="custom-tree-node" slot-scope="{ node, data }">
+          <span v-if="data.children"><i class="icon1"></i></span>         
+          <span v-else><i class="icon2"></i></span> 
+          <span>{{ node.label }}</span>        
+        </span>
+      </el-tree>
     </div>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'Home',
-  data() {}
+  name: 'Index',
+  data() {
+    return {
+      type: 1,
+      treeData: [{
+        label: '时间环境',
+        children: [{
+          label: '仿真时间',
+        }, {
+          label: '重力场'
+        }]
+      }],
+      defaultProps: {
+        children: 'children',
+        label: 'label'
+      }
+    }
+  }
 }
 </script>
 
 <style lang="scss" scoped>
-  .box{
-    .top{
-      height: auto;
-      overflow: hidden;
-      padding-bottom: 20px;
-      border-bottom: 2px solid #E7E7E7;
-      .logo{
-        font-size: 20px;
-        padding: 20px;
+  .section{
+    padding: 20px 15px;
+    .htit{
+      h3{
+        font-size: 18px;
+        display: inline;
+        margin-right: 20px;
       }
-      .bar{
-        float: left;
-        margin: 0 0 0 20px;
-        ul{
-          li{
-            float: left;
-            margin: 0 20px 0 0;
-            cursor: pointer;
-            img{
-              vertical-align: middle;
-              width: 20px;
-              height: 20px;
-            }
-          }
+    }
+    .box1{
+      margin-top: 20px;
+      dl{
+        dt{
+          display: inline-block;
+          width: 80px;
+          color: #3e3e3e;
+        }
+        dd{
+          display: inline-block;
+          width: 50px;
         }
       }
-      .top_button{
-        float: left;
-        margin: 0 0 0 50%;
-        .inbut{
-          float: left;
-          width: 70px;
-          height: 32px;
-          margin: 0 20px 0 0;
-          line-height: 32px;
-          background:rgba(0,191,87,1);
-          box-shadow:0px 4px 10px 0px rgba(37,191,107,0.1);
-          border-radius:3px;
-          font-size: 14px;
-          color: #fff;
-          cursor: pointer;
-          img{
-            width: 20px;
-            height: 20px;
-            margin: 0 0 0 5px;
-            vertical-align: middle;
-          }
-        }
-        .stop{
-          background: #FF5400;
-          span{
-            font-size: 12px;
-            margin: 0 5px 0 10px;
-          }
-        }
-      }
+    }
+    .right_s{
+      width: 400px;
+      position: absolute;
+      padding: 20px;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      height: 100%;
+      border-left: 2px solid #E7E7E7;
     }
   }
 </style>
