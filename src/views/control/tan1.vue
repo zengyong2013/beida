@@ -58,8 +58,5 @@ export default {
         margin-right: 80px;
       }
     }
-    .btnok{
-      margin: 30px 0 0 460px;
-    }
   }
 </style>

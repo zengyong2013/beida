@@ -154,10 +154,16 @@ export default {
   }
 </style>
 <style>
-  .fade-enter-active, .fade-leave-active {
+  .btnok{
+    position: absolute;
+    bottom: 20px;
+    margin: 30px 0 0 460px;
+    background: #00BF57;
+  }
+  /* .fade-enter-active, .fade-leave-active {
     transition: opacity .5s;
   }
-  .fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+  .fade-enter, .fade-leave-to {
     opacity: 0;
-  }
+  } */
 </style>

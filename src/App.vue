@@ -27,6 +27,30 @@ body,ul,li,span,i {
   -moz-osx-font-smoothing: grayscale;
   color: #000;
 }
+.el-icon-caret-right:before{
+  display: inline-block;
+  width: 14px; height: 14px;
+  content: '';
+  background: url('./assets/plus.png') no-repeat left center;
+  background-size: 14px 14px;
+}
+.expanded:before{
+  display: inline-block;
+  width: 14px; height: 14px;
+  content: '';
+  background: url('./assets/mult.png') no-repeat left center;
+  background-size: 14px 14px;
+}
+.el-tree-node__expand-icon.expanded{
+  transform: rotate(180deg)
+}
+.is-leaf:before{
+  display: inline-block;
+  width: 0; height: 0;
+  content: '';
+  background: none;
+  background-size: 16px 16px;
+}
 .bar{
   h3{
     font-size: 18px;
